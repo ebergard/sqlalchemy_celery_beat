@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sqlalchemy_celery_beat"
+version = "0.0.1"
+authors = [
+ { name="Kseniia Ebergard", email="ebergard-xu@bk.ru" },
+]
+description = "Library for managing celery beat schedule through sqlalchemy models"
+readme = "README.md"
+requires-python = ">=3.8.0"
+dependencies = [
+    "celery>=5.4.0",
+    "sqlalchemy>=2.0.0"
+]
+classifiers = [
+   "Programming Language :: Python :: 3",
+   "License :: OSI Approved :: MIT License",
+   "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = ""
