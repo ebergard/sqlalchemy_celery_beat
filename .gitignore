@@ -1,6 +1,9 @@
 venv
 .venv
 
+dist
+.dist
+
 # Python stuff
 __pycache__
 
