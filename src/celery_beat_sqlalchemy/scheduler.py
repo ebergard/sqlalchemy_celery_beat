@@ -66,7 +66,7 @@ class DatabaseScheduler(Scheduler):
             if type(param_type) is type:
                 return param_type.__name__
             if type(param_type) is enum.EnumType:
-                return f"<one of: {", ".join(set(st.value for st in param_type))}>"
+                return f"<one of: {', '.join(set(st.value for st in param_type))}>"
             return str(param_type)
 
         def get_annotation(param_annotation) -> str:
@@ -112,11 +112,11 @@ class DatabaseScheduler(Scheduler):
                     args=json.dumps(task["args"]),
                     kwargs=json.dumps(task["kwargs"]),
                     schedule=(
-                        f"{task["schedule"]._orig_minute} "
-                        f"{task["schedule"]._orig_hour} "
-                        f"{task["schedule"]._orig_day_of_month} "
-                        f"{task["schedule"]._orig_month_of_year} "
-                        f"{task["schedule"]._orig_day_of_week}"
+                        f"{task['schedule']._orig_minute} "
+                        f"{task['schedule']._orig_hour} "
+                        f"{task['schedule']._orig_day_of_month} "
+                        f"{task['schedule']._orig_month_of_year} "
+                        f"{task['schedule']._orig_day_of_week}"
                     ),
                     comment=comment,
                 )

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "celery-beat-sqlalchemy"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
  { name="Kseniia Ebergard", email="ebergard-xu@bk.ru" },
 ]
@@ -23,3 +23,62 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/ebergard/sqlalchemy_celery_beat"
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+exclude = [
+    "__init__.py",
+]
+line-length = 100
+
+[tool.ruff.lint]
+ignore = [
+    "N818",  #  Exception name should be named with an Error suffix
+    "SIM108",  # Use ternary operator instead of `if`-`else`-block
+    "D205",  # 1 blank line required between summary line and description
+    "PERF203",
+]
+
+select = [
+    "F",
+    "E",
+    "C90",
+    "I",
+    "N",
+    "UP",
+    "ASYNC",
+    "S",
+    "ICN",
+    "PIE",
+    "T",
+    "Q",
+    "RET",
+    "SIM",
+    "PERF",
+    "PL",
+    "D103", "D2", "D3", "D4",
+]
+
+[tool.ruff.lint.pylint]
+max-args = 9
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 250
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.flake8-import-conventions.aliases]
+# Declare the default aliases.
+datetime = "dt"
+
+[tool.ruff.lint.isort]
+known-third-party = ["celery"]
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"

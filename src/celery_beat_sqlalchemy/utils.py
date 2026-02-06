@@ -23,4 +23,5 @@ def get_task_category(task_module: str):
 
 
 def db_bindparam(name: str) -> str:
+    """Sqlalchemy bindparam alias generator."""
     return f"{name}_value"

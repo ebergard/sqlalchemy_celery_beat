@@ -11,8 +11,8 @@ engine = create_engine(url=celery_app.conf.beat_db_scheduler_dsn, future=True, p
 
 @contextlib.contextmanager
 def db_sessionmaker() -> Generator[Session, Any, None]:
-    with (
-        engine.connect() as conn,
-        Session(bind=conn, expire_on_commit=False, autoflush=False) as session,
-    ):
+    """Database session maker."""
+    with engine.connect() as conn, Session(
+        bind=conn, expire_on_commit=False, autoflush=False
+    ) as session:
         yield session

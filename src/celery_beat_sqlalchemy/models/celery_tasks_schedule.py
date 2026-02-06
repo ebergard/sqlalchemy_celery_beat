@@ -114,30 +114,36 @@ class CeleryTasksScheduleModel(CeleryTasksScheduleBase):
 
 @event.listens_for(CeleryTasksScheduleModel, "before_insert")
 def before_insert_handler(mapper, connection, target: CeleryTasksScheduleModel):
+    """Validate task schedule entry before insert."""
     before_validator(mapper, connection, target)
 
 
 @event.listens_for(CeleryTasksScheduleModel, "before_update")
 def before_update_handler(mapper, connection, target: CeleryTasksScheduleModel):
+    """Validate task schedule entry before update."""
     before_validator(mapper, connection, target)
 
 
 @event.listens_for(CeleryTasksScheduleModel, "after_insert")
 def after_insert_handler(mapper, connection, target: CeleryTasksScheduleModel):
+    """Update when schedule entry was modified."""
     CeleryTasksScheduleMetaModel.update_last_updated_at()
 
 
 @event.listens_for(CeleryTasksScheduleModel, "after_update")
 def after_update_handler(mapper, connection, target: CeleryTasksScheduleModel):
+    """Update when schedule entry was modified."""
     CeleryTasksScheduleMetaModel.update_last_updated_at()
 
 
 @event.listens_for(CeleryTasksScheduleModel, "after_delete")
 def after_delete_handler(mapper, connection, target: CeleryTasksScheduleModel):
+    """Update when schedule entry was modified."""
     CeleryTasksScheduleMetaModel.update_last_updated_at()
 
 
 def before_validator(mapper, connection, target):
+    """Validate task schedule entry before insert/update."""
     if target.task not in celery_app.tasks:
         raise RuntimeError(f"Task '{target.task}' does not exist")
 
