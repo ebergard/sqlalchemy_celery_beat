@@ -21,11 +21,16 @@ classifiers = [
    "Operating System :: OS Independent",
 ]
 
+[project.optional-dependencies]
+sqladmin = ["sqladmin"]
+all = ["sqladmin"]
+
 [project.urls]
 Homepage = "https://github.com/ebergard/sqlalchemy_celery_beat"
 
 [tool.black]
 line-length = 100
+target-version = ['py38']
 
 [tool.ruff]
 exclude = [
