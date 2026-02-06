@@ -4,8 +4,8 @@ from sqladmin import ModelView
 from sqladmin.forms import ModelConverter
 from sqlalchemy.orm import RelationshipProperty, sessionmaker
 
-from src.celery_beat_sqlalchemy.models.celery_tasks import CeleryTasksModel
-from src.celery_beat_sqlalchemy.models.celery_tasks_schedule import CeleryTasksScheduleModel
+from .models.celery_tasks import CeleryTasksModel
+from .models.celery_tasks_schedule import CeleryTasksScheduleModel
 
 
 class CustomModelConverter(ModelConverter):
