@@ -45,17 +45,23 @@ class DatabaseScheduler(Scheduler):
     @property
     def schedule(self):
         self._schedule = self._schedule or {}
-        if self._need_update():
-            self._update_schedule()
+        try:
+            if self._need_update():
+                self._update_schedule()
+        except DatabaseError as e:
+            error(f"Failed to update beat schedule: {e}")
         return self._schedule
 
     def setup_schedule(self):
         debug("Setup schedule")
         self._prepare_models()
-        self._clean_deprecated()
-        self._fill_celery_tasks()
-        self._fill_celery_tasks_schedule()
-        self._update_schedule()
+        try:
+            self._clean_deprecated()
+            self._fill_celery_tasks()
+            self._fill_celery_tasks_schedule()
+            self._update_schedule()
+        except Exception as e:
+            error(f"Failed to setup beat schedule: {e}")
 
     def _fill_celery_tasks(self):
         """Fill celery_tasks table with application celery tasks."""
