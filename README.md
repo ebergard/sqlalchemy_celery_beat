@@ -41,12 +41,12 @@ Install from PyPi:
 The following examples are for [sqladmin](https://pypi.org/project/sqladmin/) interface.
 #### View application available tasks
 Your application up-to-date list of tasks can be seen in `Celery Tasks Models` view. New tasks are downloaded on the application start automatically, as well as the removed ones are deleted:
-![List of tasks](./static/readme/1-view.png)
+![List of tasks](https://github.com/ebergard/sqlalchemy_celery_beat/blob/master/static/readme/1-view.png?raw=true)
 #### Add new periodic task
 To add a new scheduled task you select it from the dropdown list:
-![Add from list](./static/readme/2-add_list.png)
+![Add from list](https://github.com/ebergard/sqlalchemy_celery_beat/blob/master/static/readme/2-add_list.png?raw=true)
 and fill in all necessary arguments and the desired schedule:
-![Fill params](./static/readme/2-add_task.png)
+![Fill params](https://github.com/ebergard/sqlalchemy_celery_beat/blob/master/static/readme/2-add_task.png?raw=true)
 
 ### Implementation details
 #### Models
