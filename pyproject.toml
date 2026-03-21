@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "celery-beat-sqlalchemy"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
  { name="Kseniia Ebergard", email="ebergard-xu@bk.ru" },
 ]
-description = "Manage celery beat schedule through sqlalchemy models. Use predefined views for sqladmin package."
+description = "Database-backed celery beat schedule for SQLAlchemy with predefined views for sqladmin package."
 readme = "README.md"
 requires-python = ">=3.8.0"
 dependencies = [
